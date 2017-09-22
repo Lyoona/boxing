@@ -214,6 +214,7 @@ public class BoxingViewActivity extends AbsBoxingViewActivity {
 
     @Override
     public void startLoading() {
+        mAdapter.setMedias(mImages);
         if (!mNeedLoading) {
             mCurrentImageItem = (ImageMedia) mSelectedImages.get(mStartPos);
             if (mStartPos > 0 && mStartPos < mSelectedImages.size()) {
@@ -223,10 +224,8 @@ public class BoxingViewActivity extends AbsBoxingViewActivity {
                     , String.valueOf(mSelectedImages.size())));
             mProgressBar.setVisibility(View.GONE);
             mGallery.setVisibility(View.VISIBLE);
-            mAdapter.setMedias(mImages);
         } else {
             loadMedia(mAlbumId, mStartPos, mCurrentPage);
-            mAdapter.setMedias(mImages);
         }
     }
 
